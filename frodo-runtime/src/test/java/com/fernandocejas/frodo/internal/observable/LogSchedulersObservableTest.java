@@ -1,7 +1,7 @@
 package com.fernandocejas.frodo.internal.observable;
 
 import com.fernandocejas.frodo.core.optional.Optional;
-import com.fernandocejas.frodo.internal.MessageManager;
+import com.fernandocejas.frodo.internal.messenger.ObservableMessageManager;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -24,7 +24,7 @@ public class LogSchedulersObservableTest {
   private LogSchedulersObservable loggableObservable;
   private TestSubscriber subscriber;
 
-  @Mock private MessageManager messageManager;
+  @Mock private ObservableMessageManager messageManager;
 
   @Before
   public void setUp() {

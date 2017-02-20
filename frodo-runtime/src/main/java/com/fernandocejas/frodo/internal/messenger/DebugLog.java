@@ -1,4 +1,4 @@
-package com.fernandocejas.frodo.internal;
+package com.fernandocejas.frodo.internal.messenger;
 
 import android.util.Log;
 
@@ -17,7 +17,7 @@ class DebugLog {
    * call occurs.
    * @param message The message you would like logged.
    */
-  public void log(String tag, String message) {
+  void log(String tag, String message) {
     Log.d(tag, message);
   }
 }

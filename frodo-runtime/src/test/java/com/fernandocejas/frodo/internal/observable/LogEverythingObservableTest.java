@@ -1,15 +1,18 @@
 package com.fernandocejas.frodo.internal.observable;
 
 import com.fernandocejas.frodo.core.optional.Optional;
-import com.fernandocejas.frodo.internal.MessageManager;
+import com.fernandocejas.frodo.internal.messenger.ObservableMessageManager;
 import com.fernandocejas.frodo.joinpoint.FrodoProceedingJoinPoint;
-import java.util.concurrent.TimeUnit;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+
+import java.util.concurrent.TimeUnit;
+
 import rx.observers.TestSubscriber;
 import rx.schedulers.Schedulers;
 
@@ -26,7 +29,7 @@ public class LogEverythingObservableTest {
   private LogEverythingObservable loggableObservable;
   private TestSubscriber subscriber;
 
-  @Mock private MessageManager messageManager;
+  @Mock private ObservableMessageManager messageManager;
 
   @Before
   public void setUp() {

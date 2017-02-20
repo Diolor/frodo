@@ -3,7 +3,7 @@ package com.fernandocejas.frodo.aspect;
 import com.fernandocejas.frodo.annotation.RxLogObservable;
 import com.fernandocejas.frodo.internal.observable.FrodoObservable;
 import com.fernandocejas.frodo.internal.observable.LoggableObservableFactory;
-import com.fernandocejas.frodo.internal.MessageManager;
+import com.fernandocejas.frodo.internal.messenger.ObservableMessageManager;
 import com.fernandocejas.frodo.internal.observable.ObservableInfo;
 import com.fernandocejas.frodo.joinpoint.FrodoProceedingJoinPoint;
 import java.lang.annotation.Annotation;
@@ -30,7 +30,7 @@ public class LogObservable {
   @Around("methodAnnotatedWithRxLogObservable(joinPoint)")
   public Object weaveAroundJoinPoint(ProceedingJoinPoint joinPoint) throws Throwable {
     final FrodoProceedingJoinPoint proceedingJoinPoint = new FrodoProceedingJoinPoint(joinPoint);
-    final MessageManager messageManager = new MessageManager();
+    final ObservableMessageManager messageManager = new ObservableMessageManager();
     final LoggableObservableFactory observableFactory =
         new LoggableObservableFactory(proceedingJoinPoint, messageManager,
             new ObservableInfo(proceedingJoinPoint));

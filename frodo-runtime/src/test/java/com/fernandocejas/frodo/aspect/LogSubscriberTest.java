@@ -1,7 +1,7 @@
 package com.fernandocejas.frodo.aspect;
 
 import com.fernandocejas.frodo.internal.Counter;
-import com.fernandocejas.frodo.internal.MessageManager;
+import com.fernandocejas.frodo.internal.messenger.ObservableMessageManager;
 import com.fernandocejas.frodo.internal.StopWatch;
 import com.fernandocejas.frodo.joinpoint.TestJoinPoint;
 import com.fernandocejas.frodo.joinpoint.TestProceedingJoinPoint;
@@ -31,7 +31,7 @@ public class LogSubscriberTest {
 
   @Mock private Counter counter;
   @Mock private StopWatch stopWatch;
-  @Mock private MessageManager messageManager;
+  @Mock private ObservableMessageManager messageManager;
 
   private TestSubscriber subscriber;
   private TestJoinPoint joinPoint;

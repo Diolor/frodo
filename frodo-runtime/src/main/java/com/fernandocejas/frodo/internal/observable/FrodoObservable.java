@@ -2,7 +2,7 @@ package com.fernandocejas.frodo.internal.observable;
 
 import com.fernandocejas.frodo.annotation.RxLogObservable;
 import com.fernandocejas.frodo.core.strings.Strings;
-import com.fernandocejas.frodo.internal.MessageManager;
+import com.fernandocejas.frodo.internal.messenger.ObservableMessageManager;
 import com.fernandocejas.frodo.joinpoint.FrodoProceedingJoinPoint;
 import java.lang.annotation.Annotation;
 
@@ -10,13 +10,13 @@ import java.lang.annotation.Annotation;
 public class FrodoObservable {
 
   private final FrodoProceedingJoinPoint joinPoint;
-  private final MessageManager messageManager;
+  private final ObservableMessageManager messageManager;
   private final ObservableInfo observableInfo;
   private final LoggableObservableFactory observableFactory;
 
   private String observeOnThread = Strings.EMPTY;
 
-  public FrodoObservable(FrodoProceedingJoinPoint joinPoint, MessageManager messageManager,
+  public FrodoObservable(FrodoProceedingJoinPoint joinPoint, ObservableMessageManager messageManager,
       LoggableObservableFactory observableFactory) {
     this.joinPoint = joinPoint;
     this.messageManager = messageManager;

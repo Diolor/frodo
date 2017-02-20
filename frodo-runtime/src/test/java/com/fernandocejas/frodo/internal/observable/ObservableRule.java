@@ -1,7 +1,7 @@
 package com.fernandocejas.frodo.internal.observable;
 
 import com.fernandocejas.frodo.core.strings.Strings;
-import com.fernandocejas.frodo.internal.MessageManager;
+import com.fernandocejas.frodo.internal.messenger.ObservableMessageManager;
 import com.fernandocejas.frodo.joinpoint.FrodoProceedingJoinPoint;
 import com.fernandocejas.frodo.joinpoint.TestJoinPoint;
 import com.fernandocejas.frodo.joinpoint.TestProceedingJoinPoint;
@@ -21,7 +21,7 @@ class ObservableRule implements TestRule {
   private FrodoProceedingJoinPoint frodoProceedingJoinPoint;
   private ObservableInfo observableInfo;
 
-  @Mock private MessageManager messageManager;
+  @Mock private ObservableMessageManager messageManager;
 
   ObservableRule(Class declaringType) {
     MockitoAnnotations.initMocks(this);
@@ -45,7 +45,7 @@ class ObservableRule implements TestRule {
     return frodoProceedingJoinPoint;
   }
 
-  MessageManager messageManager() {
+  ObservableMessageManager messageManager() {
     return messageManager;
   }
 

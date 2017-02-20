@@ -1,16 +1,16 @@
 package com.fernandocejas.frodo.internal.observable;
 
 import com.fernandocejas.frodo.core.annotations.VisibleForTesting;
-import com.fernandocejas.frodo.internal.MessageManager;
+import com.fernandocejas.frodo.internal.messenger.ObservableMessageManager;
 import com.fernandocejas.frodo.joinpoint.FrodoProceedingJoinPoint;
 
 abstract class LoggableObservable {
 
   final FrodoProceedingJoinPoint joinPoint;
-  final MessageManager messageManager;
+  final ObservableMessageManager messageManager;
   final ObservableInfo observableInfo;
 
-  LoggableObservable(FrodoProceedingJoinPoint joinPoint, MessageManager messageManager,
+  LoggableObservable(FrodoProceedingJoinPoint joinPoint, ObservableMessageManager messageManager,
       ObservableInfo observableInfo) {
     this.joinPoint = joinPoint;
     this.messageManager = messageManager;

@@ -1,7 +1,7 @@
 package com.fernandocejas.frodo.internal.observable;
 
 import com.fernandocejas.frodo.core.optional.Optional;
-import com.fernandocejas.frodo.internal.MessageManager;
+import com.fernandocejas.frodo.internal.messenger.ObservableMessageManager;
 import java.util.concurrent.TimeUnit;
 import org.junit.Before;
 import org.junit.Rule;
@@ -26,7 +26,7 @@ public class LogStreamObservableTest {
   private LogStreamObservable loggableObservable;
   private TestSubscriber subscriber;
 
-  @Mock private MessageManager messageManager;
+  @Mock private ObservableMessageManager messageManager;
 
   @Before
   public void setUp() {

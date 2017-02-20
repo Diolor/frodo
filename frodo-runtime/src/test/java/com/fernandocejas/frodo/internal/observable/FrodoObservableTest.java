@@ -1,14 +1,17 @@
 package com.fernandocejas.frodo.internal.observable;
 
-import com.fernandocejas.frodo.internal.MessageManager;
-import java.lang.annotation.Annotation;
-import java.util.Collections;
+import com.fernandocejas.frodo.internal.messenger.ObservableMessageManager;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+
+import java.lang.annotation.Annotation;
+import java.util.Collections;
+
 import rx.observers.TestSubscriber;
 
 import static org.mockito.BDDMockito.given;
@@ -24,7 +27,7 @@ public class FrodoObservableTest {
   private FrodoObservable frodoObservable;
   private TestSubscriber subscriber;
 
-  @Mock private MessageManager messageManager;
+  @Mock private ObservableMessageManager messageManager;
   @Mock private LoggableObservableFactory observableFactory;
 
   @Before

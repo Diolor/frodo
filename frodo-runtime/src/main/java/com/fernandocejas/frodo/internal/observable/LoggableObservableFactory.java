@@ -1,18 +1,18 @@
 package com.fernandocejas.frodo.internal.observable;
 
 import com.fernandocejas.frodo.annotation.RxLogObservable;
-import com.fernandocejas.frodo.internal.MessageManager;
+import com.fernandocejas.frodo.internal.messenger.ObservableMessageManager;
 import com.fernandocejas.frodo.joinpoint.FrodoProceedingJoinPoint;
 import java.lang.annotation.Annotation;
 
 @SuppressWarnings("unchecked") public class LoggableObservableFactory {
 
   private final FrodoProceedingJoinPoint joinPoint;
-  private final MessageManager messageManager;
+  private final ObservableMessageManager messageManager;
   private final ObservableInfo observableInfo;
 
   public LoggableObservableFactory(FrodoProceedingJoinPoint joinPoint,
-      MessageManager messageManager, ObservableInfo observableInfo) {
+                                   ObservableMessageManager messageManager, ObservableInfo observableInfo) {
     this.joinPoint = joinPoint;
     this.messageManager = messageManager;
     this.observableInfo = observableInfo;

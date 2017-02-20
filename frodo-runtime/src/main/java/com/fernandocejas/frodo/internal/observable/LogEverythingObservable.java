@@ -1,7 +1,7 @@
 package com.fernandocejas.frodo.internal.observable;
 
 import com.fernandocejas.frodo.internal.Counter;
-import com.fernandocejas.frodo.internal.MessageManager;
+import com.fernandocejas.frodo.internal.messenger.ObservableMessageManager;
 import com.fernandocejas.frodo.internal.StopWatch;
 import com.fernandocejas.frodo.joinpoint.FrodoProceedingJoinPoint;
 import rx.Notification;
@@ -11,7 +11,7 @@ import rx.functions.Action1;
 
 @SuppressWarnings("unchecked") class LogEverythingObservable extends LoggableObservable {
 
-  LogEverythingObservable(FrodoProceedingJoinPoint joinPoint, MessageManager messageManager,
+  LogEverythingObservable(FrodoProceedingJoinPoint joinPoint, ObservableMessageManager messageManager,
       ObservableInfo observableInfo) {
     super(joinPoint, messageManager, observableInfo);
   }

@@ -1,4 +1,4 @@
-package com.fernandocejas.frodo.internal;
+package com.fernandocejas.frodo.internal.messenger;
 
 import com.fernandocejas.frodo.core.optional.Optional;
 import com.fernandocejas.frodo.internal.observable.ObservableInfo;
@@ -8,22 +8,9 @@ import java.util.List;
 /**
  * Class used to build different messages that will be shown in debug mode
  */
-class MessageBuilder {
+class ObservableMessageBuilder extends MessengerBuilder{
 
-  private static final String LOG_START = "@";
-  private static final String SEPARATOR = " :: ";
-  private static final String METHOD_SEPARATOR = "#";
-  private static final String VALUE_SEPARATOR = " -> ";
-  private static final String TEXT_ENCLOSING_SYMBOL = "'";
-  private static final String LOG_ENCLOSING_OPEN = "[";
-  private static final String LOG_ENCLOSING_CLOSE = "]";
-  private static final String LIBRARY_LABEL = "Frodo => ";
-  private static final String CLASS_LABEL = LOG_START + "InClass" + VALUE_SEPARATOR;
-  private static final String METHOD_LABEL = LOG_START + "Method" + VALUE_SEPARATOR;
-  private static final String TIME_LABEL = LOG_START + "Time" + VALUE_SEPARATOR;
-  private static final String TIME_MILLIS = " ms";
   private static final String OBSERVABLE_LABEL = LOG_START + "Observable";
-  private static final String EMITTED_ELEMENTS_LABEL = LOG_START + "Emitted" + VALUE_SEPARATOR;
   private static final String LABEL_OBSERVABLE_ON_SUBSCRIBE = "onSubscribe()";
   private static final String LABEL_OBSERVABLE_ON_NEXT = "onNext()";
   private static final String LABEL_OBSERVABLE_ON_ERROR = "onError()";
@@ -46,7 +33,7 @@ class MessageBuilder {
   private static final String LABEL_ELEMENT_PLURAL = " elements";
   private static final String LABEL_MESSAGE_NULL_OBSERVABLES = "You received a null observable";
 
-  MessageBuilder() {}
+  ObservableMessageBuilder() {}
 
   String buildObservableInfoMessage(ObservableInfo observableInfo) {
     final FrodoJoinPoint joinPoint = observableInfo.getJoinPoint();

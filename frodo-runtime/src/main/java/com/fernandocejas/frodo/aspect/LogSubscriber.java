@@ -1,7 +1,7 @@
 package com.fernandocejas.frodo.aspect;
 
 import com.fernandocejas.frodo.internal.Counter;
-import com.fernandocejas.frodo.internal.MessageManager;
+import com.fernandocejas.frodo.internal.messenger.ObservableMessageManager;
 import com.fernandocejas.frodo.internal.StopWatch;
 import com.fernandocejas.frodo.joinpoint.FrodoJoinPoint;
 import org.aspectj.lang.JoinPoint;
@@ -27,14 +27,14 @@ public class LogSubscriber {
 
   private final Counter counter;
   private final StopWatch stopWatch;
-  private final MessageManager messageManager;
+  private final ObservableMessageManager messageManager;
   private boolean isFirstElementEmitted = true;
 
   public LogSubscriber() {
-    this(new Counter(), new StopWatch(), new MessageManager());
+    this(new Counter(), new StopWatch(), new ObservableMessageManager());
   }
 
-  public LogSubscriber(Counter counter, StopWatch stopWatch, MessageManager messageManager) {
+  public LogSubscriber(Counter counter, StopWatch stopWatch, ObservableMessageManager messageManager) {
     this.counter = counter;
     this.stopWatch = stopWatch;
     this.messageManager = messageManager;
