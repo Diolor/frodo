@@ -14,12 +14,12 @@ import org.mockito.runners.MockitoJUnitRunner;
 import java.util.concurrent.TimeUnit;
 
 import rx.observers.TestSubscriber;
-import rx.schedulers.Schedulers;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.verify;
+import static rx.schedulers.Schedulers.immediate;
 
 @SuppressWarnings("unchecked")
 @RunWith(MockitoJUnitRunner.class)
@@ -66,8 +66,8 @@ public class LogEverythingSingleTest {
   @Test
   public void shouldFillInSingleThreadInfo() throws Throwable {
     loggableSingle.get(singleRule.stringType())
-            .subscribeOn(Schedulers.immediate())
-            .observeOn(Schedulers.immediate())
+            .subscribeOn(immediate())
+            .observeOn(immediate())
             .subscribe(subscriber);
 
     final SingleInfo observableInfo = loggableSingle.getInfo();
@@ -84,15 +84,12 @@ public class LogEverythingSingleTest {
   @Test
   public void shouldFillInSingleItemsInfo() throws Throwable {
     loggableSingle.get(singleRule.stringType())
-            .delay(2, TimeUnit.SECONDS)
+            .delay(3, TimeUnit.SECONDS)
             .subscribe(subscriber);
 
     final SingleInfo observableInfo = loggableSingle.getInfo();
-    final Optional<Integer> totalEmittedItems = observableInfo.getTotalEmittedItems();
     final Optional<Long> totalExecutionTime = observableInfo.getTotalExecutionTime();
 
-    assertThat(totalEmittedItems.isPresent()).isTrue();
     assertThat(totalExecutionTime.isPresent()).isTrue();
-    assertThat(totalEmittedItems.get()).isEqualTo(1);
   }
 }

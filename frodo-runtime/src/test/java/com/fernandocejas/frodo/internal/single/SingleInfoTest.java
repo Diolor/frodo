@@ -18,46 +18,41 @@ public class SingleInfoTest {
 
   private static final String OBSERVABLE_STREAM_VALUE = "fernando";
 
-  private SingleInfo observableInfo;
+  private SingleInfo singleInfo;
 
   @Before
   public void setUp() {
     final TestJoinPoint testJoinPoint = new TestJoinPoint.Builder(this.getClass())
-        .withReturnType(Single.class)
-        .withReturnValue(OBSERVABLE_STREAM_VALUE)
-        .build();
+            .withReturnType(Single.class)
+            .withReturnValue(OBSERVABLE_STREAM_VALUE)
+            .build();
     final FrodoJoinPoint frodoJoinPoint = new FrodoJoinPoint(testJoinPoint);
-    observableInfo = new SingleInfo(frodoJoinPoint);
+    singleInfo = new SingleInfo(frodoJoinPoint);
   }
 
   @Test
   public void shouldReturnAbsentValues() {
-    final Optional<String> optionalSubscribeOnThread = observableInfo.getSubscribeOnThread();
-    final Optional<String> optionalObserveOnThread = observableInfo.getObserveOnThread();
-    final Optional<Long> optionalTotalExecutionTime = observableInfo.getTotalExecutionTime();
-    final Optional<Integer> optionalTotalEmittedItems = observableInfo.getTotalEmittedItems();
+    final Optional<String> optionalSubscribeOnThread = singleInfo.getSubscribeOnThread();
+    final Optional<String> optionalObserveOnThread = singleInfo.getObserveOnThread();
+    final Optional<Long> optionalTotalExecutionTime = singleInfo.getTotalExecutionTime();
 
     assertThat(optionalSubscribeOnThread.isPresent()).isFalse();
     assertThat(optionalObserveOnThread.isPresent()).isFalse();
     assertThat(optionalTotalExecutionTime.isPresent()).isFalse();
-    assertThat(optionalTotalEmittedItems.isPresent()).isFalse();
   }
 
   @Test
   public void shouldReturnPresentValues() {
-    observableInfo.setSubscribeOnThread("thread");
-    observableInfo.setObserveOnThread("thread");
-    observableInfo.setTotalExecutionTime(1000);
-    observableInfo.setTotalEmittedItems(5);
+    singleInfo.setSubscribeOnThread("thread");
+    singleInfo.setObserveOnThread("thread");
+    singleInfo.setTotalExecutionTime(1000);
 
-    final Optional<String> optionalSubscribeOnThread = observableInfo.getSubscribeOnThread();
-    final Optional<String> optionalObserveOnThread = observableInfo.getObserveOnThread();
-    final Optional<Long> optionalTotalExecutionTime = observableInfo.getTotalExecutionTime();
-    final Optional<Integer> optionalTotalEmittedItems = observableInfo.getTotalEmittedItems();
+    final Optional<String> optionalSubscribeOnThread = singleInfo.getSubscribeOnThread();
+    final Optional<String> optionalObserveOnThread = singleInfo.getObserveOnThread();
+    final Optional<Long> optionalTotalExecutionTime = singleInfo.getTotalExecutionTime();
 
     assertThat(optionalSubscribeOnThread.isPresent()).isTrue();
     assertThat(optionalObserveOnThread.isPresent()).isTrue();
     assertThat(optionalTotalExecutionTime.isPresent()).isTrue();
-    assertThat(optionalTotalEmittedItems.isPresent()).isTrue();
   }
 }

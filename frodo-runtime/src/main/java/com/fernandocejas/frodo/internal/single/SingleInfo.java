@@ -9,7 +9,6 @@ public class SingleInfo {
   private String subscribeOnThread;
   private String observeOnThread;
   private long totalExecutionTime;
-  private int totalEmittedItems;
 
   public SingleInfo(FrodoJoinPoint joinPoint) {
     this.joinPoint = joinPoint;
@@ -42,13 +41,6 @@ public class SingleInfo {
     return Optional.of(totalExecutionTime);
   }
 
-  public Optional<Integer> getTotalEmittedItems() {
-    if (totalEmittedItems == 0) {
-      return Optional.absent();
-    }
-    return Optional.of(totalEmittedItems);
-  }
-
   void setSubscribeOnThread(String subscribeOnThread) {
     this.subscribeOnThread = subscribeOnThread;
   }
@@ -61,7 +53,4 @@ public class SingleInfo {
     this.totalExecutionTime = totalExecutionTime;
   }
 
-  void setTotalEmittedItems(int totalEmittedItems) {
-    this.totalEmittedItems = totalEmittedItems;
-  }
 }

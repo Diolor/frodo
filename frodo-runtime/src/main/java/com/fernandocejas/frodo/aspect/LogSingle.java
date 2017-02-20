@@ -23,7 +23,7 @@ public class LogSingle {
       "execution(@com.fernandocejas.frodo.annotation.RxLogSingle* *(..)) && if()";
 
   @Pointcut(METHOD)
-  public static boolean methodAnnotatedWithRxLogObservable(ProceedingJoinPoint joinPoint) {
+  public static boolean methodAnnotatedWithRxLogSingle(ProceedingJoinPoint joinPoint) {
     final FrodoProceedingJoinPoint frodoJoinPoint = new FrodoProceedingJoinPoint(joinPoint);
     final Annotation annotation = frodoJoinPoint.getAnnotation(RxLogSingle.class);
     return ((MethodSignature) joinPoint.getSignature()).getReturnType() == Observable.class

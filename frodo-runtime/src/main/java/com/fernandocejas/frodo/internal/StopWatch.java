@@ -35,6 +35,12 @@ public class StopWatch {
   }
 
   public long getTotalTimeMillis() {
-    return (elapsedTime != 0) ? TimeUnit.NANOSECONDS.toMillis(endTime - startTime) : 0;
+    return (elapsedTime != 0) ? minimumMillis() : 0;
+  }
+
+  private long minimumMillis() {
+    long millis = TimeUnit.NANOSECONDS.toMillis(endTime - startTime);
+    // sanity for tests where calculations take <1 millisecond
+    return millis == 0 ? 1 : millis;
   }
 }
