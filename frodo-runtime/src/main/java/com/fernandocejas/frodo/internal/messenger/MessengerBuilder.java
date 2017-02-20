@@ -1,10 +1,5 @@
 package com.fernandocejas.frodo.internal.messenger;
 
-import com.fernandocejas.frodo.internal.single.SingleInfo;
-
-/**
- *
- */
 abstract class MessengerBuilder {
   static final String LOG_START = "@";
   static final String SEPARATOR = " :: ";
@@ -19,6 +14,11 @@ abstract class MessengerBuilder {
   static final String TIME_LABEL = LOG_START + "Time" + VALUE_SEPARATOR;
   static final String TIME_MILLIS = " ms";
   static final String EMITTED_ELEMENTS_LABEL = LOG_START + "Emitted" + VALUE_SEPARATOR;
+  static final String LABEL_ELEMENT_SINGULAR = " element";
+  static final String LABEL_ELEMENT_PLURAL = " elements";
 
-
+  static final String LABEL_SUBSCRIBER_SUBSCRIBE_ON =
+          LOG_START + "SubscribeOn" + VALUE_SEPARATOR;
+  static final String LABEL_SUBSCRIBER_OBSERVE_ON =
+          LOG_START + "ObserveOn" + VALUE_SEPARATOR;
 }

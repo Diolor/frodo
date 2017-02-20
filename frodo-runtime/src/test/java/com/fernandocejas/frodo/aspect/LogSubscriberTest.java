@@ -1,16 +1,18 @@
 package com.fernandocejas.frodo.aspect;
 
 import com.fernandocejas.frodo.internal.Counter;
-import com.fernandocejas.frodo.internal.messenger.ObservableMessageManager;
 import com.fernandocejas.frodo.internal.StopWatch;
+import com.fernandocejas.frodo.internal.messenger.SubscriberMessageManager;
 import com.fernandocejas.frodo.joinpoint.TestJoinPoint;
 import com.fernandocejas.frodo.joinpoint.TestProceedingJoinPoint;
+
 import org.aspectj.lang.JoinPoint;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+
 import rx.observers.TestSubscriber;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -31,7 +33,7 @@ public class LogSubscriberTest {
 
   @Mock private Counter counter;
   @Mock private StopWatch stopWatch;
-  @Mock private ObservableMessageManager messageManager;
+  @Mock private SubscriberMessageManager messageManager;
 
   private TestSubscriber subscriber;
   private TestJoinPoint joinPoint;

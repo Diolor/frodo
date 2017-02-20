@@ -16,12 +16,9 @@ class SingleMessageBuilder extends MessengerBuilder {
   private static final String LABEL_SINGLE_ON_SUCCESS = "onSuccess()";
   private static final String LABEL_SINGLE_ON_ERROR = "onError()";
   private static final String LABEL_SINGLE_ON_UNSUBSCRIBE = "onUnsubscribe()";
-  private static final String LABEL_SINGLE_SUBSCRIBE_ON =
-          LOG_START + "SubscribeOn" + VALUE_SEPARATOR;
-  private static final String LABEL_SUBSCRIBER_OBSERVE_ON =
-          LOG_START + "ObserveOn" + VALUE_SEPARATOR;
 
-  public SingleMessageBuilder() {
+
+  SingleMessageBuilder() {
   }
 
   String buildSingleInfoMessage(SingleInfo observableInfo) {
@@ -110,7 +107,7 @@ class SingleMessageBuilder extends MessengerBuilder {
     message.append(observableInfo.getMethodName());
     message.append(VALUE_SEPARATOR);
     if (subscribeOnThread.isPresent()) {
-      message.append(LABEL_SINGLE_SUBSCRIBE_ON);
+      message.append(LABEL_SUBSCRIBER_SUBSCRIBE_ON);
       message.append(subscribeOnThread.get());
     }
     if (observeOnThread.isPresent()) {

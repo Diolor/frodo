@@ -1,14 +1,16 @@
 package com.fernandocejas.frodo.aspect;
 
 import com.fernandocejas.frodo.internal.Counter;
-import com.fernandocejas.frodo.internal.messenger.ObservableMessageManager;
 import com.fernandocejas.frodo.internal.StopWatch;
+import com.fernandocejas.frodo.internal.messenger.SubscriberMessageManager;
 import com.fernandocejas.frodo.joinpoint.FrodoJoinPoint;
+
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+
 import rx.Subscriber;
 
 @Aspect
@@ -27,14 +29,14 @@ public class LogSubscriber {
 
   private final Counter counter;
   private final StopWatch stopWatch;
-  private final ObservableMessageManager messageManager;
+  private final SubscriberMessageManager messageManager;
   private boolean isFirstElementEmitted = true;
 
   public LogSubscriber() {
-    this(new Counter(), new StopWatch(), new ObservableMessageManager());
+    this(new Counter(), new StopWatch(), new SubscriberMessageManager());
   }
 
-  public LogSubscriber(Counter counter, StopWatch stopWatch, ObservableMessageManager messageManager) {
+  public LogSubscriber(Counter counter, StopWatch stopWatch, SubscriberMessageManager messageManager) {
     this.counter = counter;
     this.stopWatch = stopWatch;
     this.messageManager = messageManager;
