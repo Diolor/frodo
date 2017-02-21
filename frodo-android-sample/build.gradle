@@ -56,6 +56,6 @@ android {
 }
 
 dependencies {
-  compile 'io.reactivex:rxjava:1.0.14'
-  compile 'io.reactivex:rxandroid:0.25.0'
+  compile 'io.reactivex:rxjava:1.2.6'
+  compile 'io.reactivex:rxandroid:1.2.1'
 }
