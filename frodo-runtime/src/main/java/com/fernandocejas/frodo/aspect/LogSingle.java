@@ -20,7 +20,7 @@ import rx.Single;
 @Aspect
 public class LogSingle {
   private static final String METHOD =
-      "execution(@com.fernandocejas.frodo.annotation.RxLogSingle* *(..)) && if()";
+      "execution(@com.fernandocejas.frodo.annotation.RxLogSingle * *(..)) && if()";
 
   @Pointcut(METHOD)
   public static boolean methodAnnotatedWithRxLogSingle(ProceedingJoinPoint joinPoint) {
