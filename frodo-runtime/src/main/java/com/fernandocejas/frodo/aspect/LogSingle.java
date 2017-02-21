@@ -15,7 +15,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 
 import java.lang.annotation.Annotation;
 
-import rx.Observable;
+import rx.Single;
 
 @Aspect
 public class LogSingle {
@@ -26,11 +26,11 @@ public class LogSingle {
   public static boolean methodAnnotatedWithRxLogSingle(ProceedingJoinPoint joinPoint) {
     final FrodoProceedingJoinPoint frodoJoinPoint = new FrodoProceedingJoinPoint(joinPoint);
     final Annotation annotation = frodoJoinPoint.getAnnotation(RxLogSingle.class);
-    return ((MethodSignature) joinPoint.getSignature()).getReturnType() == Observable.class
+    return ((MethodSignature) joinPoint.getSignature()).getReturnType() == Single.class
         && ((RxLogSingle) annotation).value() != RxLogSingle.Scope.NOTHING;
   }
 
-  @Around("methodAnnotatedWithRxLogObservable(joinPoint)")
+  @Around("methodAnnotatedWithRxLogSingle(joinPoint)")
   public Object weaveAroundJoinPoint(ProceedingJoinPoint joinPoint) throws Throwable {
     final FrodoProceedingJoinPoint proceedingJoinPoint = new FrodoProceedingJoinPoint(joinPoint);
     final SingleMessageManager messageManager = new SingleMessageManager();

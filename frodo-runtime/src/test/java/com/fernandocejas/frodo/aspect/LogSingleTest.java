@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class LogSingleTest {
 
   @Test
-  public void shouldNotWeaveAroundMethodReturningOtherTypeThanObservable() {
+  public void shouldNotWeaveAroundMethodReturningOtherTypeThanSingle() {
     final TestJoinPoint joinPoint = new TestJoinPoint.Builder(this.getClass(), "toString")
         .withReturnType(this.getClass()).build();
     final TestProceedingJoinPoint proceedingJoinPoint = new TestProceedingJoinPoint(joinPoint);
